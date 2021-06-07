@@ -4,9 +4,8 @@
  * @type {import('webpack').Configuration}
  */
 const path = require('path')
-const SelfPlugin  = require('./src/self-plugin')
+const SelfPlugin  = require('./plugins/self-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-console.log(path.dirname('./src/self-plugin'))
 const config = {
   entry: path.join(__dirname, 'src/index.js'),
   mode: 'none',
@@ -16,7 +15,7 @@ const config = {
         test: /\.(md|png|css|jpg)$/,
         use: [
           {
-            loader: './src/self-loader',
+            loader: './loaders/self-loader',
             options: {
               name: '参数'
             }
